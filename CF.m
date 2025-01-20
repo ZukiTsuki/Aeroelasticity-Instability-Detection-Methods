@@ -83,31 +83,3 @@ ylabel('$\frac{\omega_\theta}{\omega}$','Interpreter','latex');
 set(gca,'fontsize', 18);
 hold off;
 
-%--------------------------------------------------------------------------
-%Approach 2 to find k_F, (omega_F/omega_theta) and V_F
-%--------------------------------------------------------------------------
-%finding numerically k_F, (omega_F/omega_theta) and V_F
-temp1_1 = sign(o(:,1)); %"sign" function outputs -1 for a negative number;
-%+1 for a positive number and 0 for 0
-temp1_2 = diff(temp1_1); %look for "diff" function in MATLAB's help
-ind1 = find(abs(temp1_2)==2,1,'first'); %look for "find" function in MATLAB's help
-if ~isempty(ind1)
-    k_F_1 = k(ind1);
-    omega_ratio_1 = 1/sqrt(z(ind1,1));
-    V_F_1 = omega_ratio_1/k_F_1;
-    fprintf('First branch');
-    fprintf('The dimensionless flutter speed is %6.4f\n',V_F_1);
-end
-
-temp2_1 = sign(o(:,2));
-temp2_2 = diff(temp2_1);
-ind2 = find(abs(temp2_2)==2,1,'first');
-if ~isempty(ind2)
-    k_F_2 = k(ind2);
-    omega_ratio_2 = 1/sqrt(z(ind2,2));
-    V_F_2 = omega_ratio_2/k_F_2;
-    fprintf('Second branch\n');
-    fprintf('The dimensionless flutter speed is %6.4f\n',V_F_2);
-end
-
-end
