@@ -1,1 +1,1 @@
-# Aeroelasticity-InstabilityDetection-Methods
+# Aeroelasticity-Instability-Detection-Methods
